@@ -195,3 +195,28 @@ button {
     padding: 40px 12px;
   }
 }
+
+
+/* Toast notification styling */
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #151515;
+    color: white;
+    text-align: center;
+    border: 1px solid #00BFFF;
+    border-radius: 8px;
+    padding: 14px 20px;
+
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 1000;
+}
+
+/* Show toast notification */
+#toast.show {
+    visibility: visible;
+}
