@@ -1,0 +1,316 @@
+/* =========================
+   GLOBAL STYLING
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #222222;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: #171717;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 30px;
+  background: #171717;
+  color: white;
+}
+
+.navbar h1 {
+  margin: 0;
+  color: white;
+}
+
+.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar nav a:hover {
+  color: #e63946;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  background: linear-gradient(135deg, #171717, #454545);
+  color: white;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  color: white;
+}
+
+.hero p {
+  color: white;
+}
+
+.hero-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background: #e63946;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  background: #b92332;
+}
+
+/* =========================
+   MATCH SECTION
+========================= */
+
+#matches {
+  padding: 30px;
+  text-align: center;
+}
+
+.match-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+/* =========================
+   MATCH CARD
+========================= */
+
+.match-card {
+  background: white;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px #00000012;
+  text-align: left;
+}
+
+.match-card h2 {
+  color: #171717;
+}
+
+.match-card button {
+  padding: 10px 18px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.match-card button:hover {
+  background: #b92332;
+}
+
+/* =========================
+   BOOKING SECTION
+========================= */
+
+#booking {
+  margin: 30px auto;
+  padding: 25px;
+  max-width: 1000px;
+  background: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+#booking h2 {
+  color: #171717;
+}
+
+#booking input,
+#booking select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+}
+
+#booking input:focus,
+#booking select:focus {
+  outline: 2px solid #e63946;
+}
+
+#booking button {
+  padding: 10px 18px;
+  margin: 5px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#booking button:hover {
+  background: #b92332;
+}
+
+/* =========================
+   MY BOOKINGS SECTION
+========================= */
+
+#my-bookings {
+  margin: 30px auto;
+  padding: 25px;
+  max-width: 1100px;
+}
+
+#my-bookings table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 15px;
+}
+
+#my-bookings th,
+#my-bookings td {
+  padding: 12px;
+  border: 1px solid #cccccc;
+  text-align: left;
+}
+
+#my-bookings th {
+  background: #171717;
+  color: white;
+}
+
+#my-bookings tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+/* =========================
+   GUIDELINES SECTION
+========================= */
+
+#guidelines {
+  margin: 30px auto;
+  padding: 25px;
+  max-width: 1100px;
+  background: white;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+#guidelines h2,
+#guidelines h3 {
+  color: #171717;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 20px;
+  background: #171717;
+  color: white;
+  text-align: center;
+}
+
+.footer p {
+  margin: 5px;
+  color: white;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .navbar nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 25px;
+  }
+
+  #matches {
+    padding: 16px;
+  }
+
+  #booking {
+    width: 95%;
+    padding: 18px;
+  }
+
+  #my-bookings {
+    overflow-x: auto;
+    padding: 16px;
+  }
+
+  #my-bookings table {
+    min-width: 650px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar nav {
+    gap: 8px;
+  }
+
+  .navbar nav a {
+    font-size: 14px;
+  }
+
+  .hero-button {
+    margin: 5px;
+    padding: 10px 14px;
+  }
+
+  #booking button {
+    margin: 5px 2px;
+  }
+}

@@ -1,0 +1,31 @@
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px 30px;
+    background: #171717;
+    color: white;
+}
+
+.navbar h1 {
+    margin: 0;
+    color: white;
+}
+
+.navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar nav a:hover {
+    color: #e63946;
+}
