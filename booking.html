@@ -1,138 +1,235 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IPL 2026 - Ticket Booking</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <h1>IPL 2026 Ticket Booking</h1>
 
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#matches">Matches</a>
-        <a href="booking.html">Book Ticket</a>
-        <a href="index.html#my-bookings">My Bookings</a>
-        <a href="index.html#guidelines">Guidelines</a>
-      </nav>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IPL 2026 - Ticket Booking</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Link JavaScript -->
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">IPL 2026</a>
+
+        <!-- Mobile Hamburger Menu -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <nav id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="index.html#matches">Matches</a>
+            <a href="#booking">Book Ticket</a>
+            <a href="#booking-summary">Booking Summary</a>
+        </nav>
+
     </header>
 
-    <section id="book-ticket">
-      <h2>Book Your IPL 2026 Tickets</h2>
-      <p>Fill in the details below to book your stadium tickets.</p>
 
-      <form action="#" method="get">
-        <p>
-          <label for="name">Full Name:</label><br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your full name"
-            minlength="3"
-            maxlength="50"
-            required
-          />
-        </p>
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>Book Your IPL 2026 Tickets</h1>
 
         <p>
-          <label for="email">Email Address:</label><br />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@gmail.com"
-            required
-          />
+            Choose your match, select your stand and experience
+            the excitement of live cricket!
         </p>
 
-        <p>
-          <label for="phone">Phone Number:</label><br />
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="Enter 10-digit mobile number"
-            pattern="[6-9][0-9]{9}"
-            minlength="10"
-            maxlength="10"
-            required
-          />
-        </p>
-
-        <p>
-          <label for="match">Select Match:</label><br />
-          <select id="match" name="match" required>
-            <option value="">-- Select a Match --</option>
-            <option value="RCB vs CSK">RCB vs CSK</option>
-            <option value="MI vs KKR">MI vs KKR</option>
-            <option value="SRH vs RR">SRH vs RR</option>
-            <option value="GT vs DC">GT vs DC</option>
-            <option value="PBKS vs LSG">PBKS vs LSG</option>
-          </select>
-        </p>
-
-        <p>
-          <label for="stand">Select Stand Category:</label><br />
-          <select id="stand" name="stand" required>
-            <option value="">-- Select Stand --</option>
-            <option value="General">General Stand</option>
-            <option value="Premium">Premium Stand</option>
-            <option value="VIP">VIP Stand</option>
-          </select>
-        </p>
-
-        <p>
-          <label for="tickets">Number of Tickets:</label><br />
-          <input
-            type="number"
-            id="tickets"
-            name="tickets"
-            min="1"
-            max="6"
-            value="1"
-            required
-          />
-        </p>
-
-        <p>
-          <label>Preferred Seating:</label><br />
-
-          <input
-            type="radio"
-            id="near-field"
-            name="seating"
-            value="Near the field"
-            required
-          />
-          <label for="near-field">Near the Field</label>
-
-          <input
-            type="radio"
-            id="upper-stand"
-            name="seating"
-            value="Upper Stand"
-          />
-          <label for="upper-stand">Upper Stand</label>
-        </p>
-
-        <p>
-          <input type="checkbox" id="updates" name="updates" value="yes" />
-          <label for="updates">Receive match updates through email</label>
-        </p>
-
-        <p>
-          <button type="submit">Submit Booking</button>
-          <button type="reset">Reset Form</button>
-        </p>
-      </form>
     </section>
 
-    <footer>
-      <p>&copy; 2026 IPL Ticket Booking. All Rights Reserved.</p>
+
+    <!-- Booking Form -->
+    <section id="booking">
+
+        <h2>Ticket Booking Form</h2>
+
+        <p>Enter your details to book your tickets.</p>
+
+        <form id="bookingForm">
+
+            <!-- Name -->
+            <p>
+                <label for="name">Full Name:</label><br>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    minlength="3"
+                    maxlength="50"
+                    required>
+            </p>
+
+
+            <!-- Email -->
+            <p>
+                <label for="email">Email Address:</label><br>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+            </p>
+
+
+            <!-- Phone -->
+            <p>
+                <label for="phone">Phone Number:</label><br>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="10-digit mobile number"
+                    pattern="[0-9]{10}"
+                    title="Enter a valid 10-digit phone number"
+                    required>
+            </p>
+
+
+            <!-- Match Selection -->
+            <p>
+                <label for="match">Select Match:</label><br>
+
+                <select id="match" name="match" required>
+
+                    <option value="1">CSK vs MI - 28 March</option>
+
+                    <option value="2">RCB vs KKR - 29 March</option>
+
+                    <option value="3">RR vs CSK - 30 March</option>
+
+                    <option value="4">MI vs KKR - 1 April</option>
+
+                    <option value="5">CSK vs RCB - 2 April</option>
+
+                </select>
+            </p>
+
+
+            <!-- Stand Selection -->
+            <p>
+                <label for="stand">Stand Category:</label><br>
+
+                <select id="stand" name="stand" required>
+
+                    <option value="General">General</option>
+
+                    <option value="Premium">Premium</option>
+
+                    <option value="VIP">VIP</option>
+
+                </select>
+            </p>
+
+
+            <!-- Ticket Quantity -->
+            <p>
+                <label for="quantity">Number of Tickets:</label><br>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required>
+            </p>
+
+
+            <!-- Booking Preferences -->
+            <p>
+                <label>
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required>
+                    I agree to the booking guidelines.
+                </label>
+            </p>
+
+
+            <!-- Form Buttons -->
+            <button type="submit">Submit Booking</button>
+
+            <button type="reset">Reset Form</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Booking Summary -->
+    <section id="booking-summary">
+
+        <h2>Booking Summary</h2>
+
+        <p>
+            <strong>Match:</strong>
+            <span id="summaryMatch">CSK vs MI</span>
+        </p>
+
+        <p>
+            <strong>Stand:</strong>
+            <span id="summaryStand">General</span>
+        </p>
+
+        <p>
+            <strong>Ticket Price:</strong>
+            ₹<span id="summaryPrice">800</span>
+        </p>
+
+        <p>
+            <strong>Quantity:</strong>
+            <span id="summaryQuantity">1</span>
+        </p>
+
+        <h3>
+            Total Amount:
+            ₹<span id="summaryTotal">800</span>
+        </h3>
+
+    </section>
+
+
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>Copyright &copy; 2026 IPL Ticket Booking</p>
+
+        <p>Experience The Stadium Energy Live!</p>
+
+        <p>
+            <a href="index.html">Back to Home</a>
+        </p>
+
     </footer>
-  </body>
-  <script src="app.js"></script>
+
+</body>
 </html>
