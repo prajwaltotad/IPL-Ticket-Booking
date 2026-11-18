@@ -1,25 +1,33 @@
 
-function BookingForm({ selectedMatch, onBookingSubmit }) {
+function BookingForm({
+    matches,
+    selectedMatch,
+    onMatchChange,
+    onBookingSubmit
+}) {
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const form = event.target;
 
         const newBooking = {
-            name: form.name.value,
-            email: form.email.value,
-            phone: form.phone.value,
-            match: selectedMatch,
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            phone: form.phone.value.trim(),
+            match_id: form.match.value,
             stand: form.stand.value,
             tickets: form.tickets.value
         };
 
-        onBookingSubmit(newBooking);
+        const result = await onBookingSubmit(newBooking);
 
-        alert("Booking submitted successfully!");
-
-        form.reset();
+        if (result.success) {
+            alert(result.message);
+            form.reset();
+        } else {
+            alert(result.message);
+        }
     }
 
     return (
@@ -27,7 +35,6 @@ function BookingForm({ selectedMatch, onBookingSubmit }) {
             <h2>IPL 2026 Ticket Booking</h2>
 
             <form onSubmit={handleSubmit}>
-
                 <p>
                     <label>Full Name:</label><br />
                     <input
@@ -61,14 +68,23 @@ function BookingForm({ selectedMatch, onBookingSubmit }) {
                 </p>
 
                 <p>
-                    <label>Selected Match:</label><br />
-                    <input
-                        type="text"
+                    <label>Select Match:</label><br />
+                    <select
+                        name="match"
                         value={selectedMatch}
-                        placeholder="Select a match above"
-                        readOnly
+                        onChange={(event) =>
+                            onMatchChange(event.target.value)
+                        }
                         required
-                    />
+                    >
+                        <option value="">Select a match</option>
+
+                        {matches.map((match) => (
+                            <option key={match.id} value={match.id}>
+                                {match.team1} vs {match.team2} - {match.date}
+                            </option>
+                        ))}
+                    </select>
                 </p>
 
                 <p>
@@ -92,9 +108,13 @@ function BookingForm({ selectedMatch, onBookingSubmit }) {
                     />
                 </p>
 
-                <button type="submit">Submit Booking</button>
-                <button type="reset">Reset Form</button>
+                <button type="submit" disabled={matches.length === 0}>
+                    Submit Booking
+                </button>
 
+                <button type="reset">
+                    Reset Form
+                </button>
             </form>
         </section>
     );
